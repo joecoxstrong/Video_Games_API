@@ -18,7 +18,7 @@ namespace ASP_NET_Video_Games_API.Controllers
         [HttpGet]
         public IActionResult GetPublishers()
         {
-            var videoGamePublishers = _context.VideoGames.Select(vg => vg.Publisher).Distinct();
+            var videoGamePublishers = _context.VideoGames;
 
             return Ok(videoGamePublishers);
         }
