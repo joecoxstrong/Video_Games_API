@@ -22,14 +22,21 @@ namespace ASP_NET_Video_Games_API.Controllers
 
             return Ok(videoGamePublishers);
         }
-        [HttpGet("{id}")]
-        public IActionResult GetGamesByPublisher(int id)
-        {
-            //int? maxYear = _context.VideoGames.Select(vg => vg.Year).Max();
-            //int? minYear = _context.VideoGames.Select(vg => vg.Year).Min();
+        //[HttpGet("{id}")]
+        //public IActionResult GetGamesByPublisher(int id)
+        //{
+        //    //int? maxYear = _context.VideoGames.Select(vg => vg.Year).Max();
+        //    //int? minYear = _context.VideoGames.Select(vg => vg.Year).Min();
 
-            var videoGames = _context.VideoGames.Where(vg => vg.Id == id);
-            return Ok(videoGames);
+        //    var videoGames = _context.VideoGames.Where(vg => vg.Id == id);
+        //    return Ok(videoGames);
+        //}
+        [HttpGet("{name}")]
+        public IActionResult GetGamesByName(string name)
+        {
+            var videoGameNames = _context.VideoGames.Where(vgn => vgn.Name.Contains(name));
+            return Ok(videoGameNames);
         }
+            
     }
 }
